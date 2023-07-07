@@ -4,7 +4,7 @@ import { ExtensionState } from "../../modules/uv-shared-module/ExtensionState";
 export interface OpenSeadragonExtensionState extends ExtensionState {}
 
 export const createStore = () =>
-  create<OpenSeadragonExtensionState>((set) => ({
+  create<OpenSeadragonExtensionState>(set => ({
     downloadDialogueOpen: false,
     dialogueTriggerButton: null,
     openDownloadDialogue: (triggerButton: HTMLElement) =>
@@ -12,6 +12,6 @@ export const createStore = () =>
     closeDialogue: () =>
       set({
         downloadDialogueOpen: false,
-        dialogueTriggerButton: null,
-      }),
+        dialogueTriggerButton: null
+      })
   }));

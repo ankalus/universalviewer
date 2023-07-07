@@ -136,7 +136,7 @@ export class AutoComplete {
     });
 
     // hide results if clicked outside.
-    $(document).on("mouseup", (e) => {
+    $(document).on("mouseup", e => {
       if (this._$searchResultsList.parent().has($(e.target)[0]).length === 0) {
         this._clearResults();
         this._hideResults();
@@ -144,7 +144,7 @@ export class AutoComplete {
     });
 
     // hide results if focus moves on.
-    $(document).on("focusin", (e) => {
+    $(document).on("focusin", e => {
       if (
         this._$searchResultsList.has($(e.target)[0]).length === 0 &&
         !this._$element.is($(e.target)[0])
@@ -231,11 +231,11 @@ export class AutoComplete {
   private _updateListPosition(): void {
     if (this._positionAbove) {
       this._$searchResultsList.css({
-        top: this._$searchResultsList.outerHeight(true) * -1,
+        top: this._$searchResultsList.outerHeight(true) * -1
       });
     } else {
       this._$searchResultsList.css({
-        top: this._$element.outerHeight(true),
+        top: this._$element.outerHeight(true)
       });
     }
   }

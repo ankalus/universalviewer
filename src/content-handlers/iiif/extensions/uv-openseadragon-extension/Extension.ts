@@ -27,7 +27,7 @@ import {
   ExternalResourceType,
   ServiceProfile,
   ViewingHint,
-  ViewingDirection,
+  ViewingDirection
 } from "@iiif/vocabulary/dist-commonjs/";
 import { AnnotationGroup, AnnotationRect } from "@iiif/manifold";
 import {
@@ -43,7 +43,7 @@ import {
   Service,
   Size,
   Utils,
-  Manifest,
+  Manifest
 } from "manifesto.js";
 import "./theme/theme.less";
 import defaultConfig from "./config/en-GB.json";
@@ -86,7 +86,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     "cy-GB": () => import("./config/cy-GB.json"),
     "fr-FR": () => import("./config/fr-FR.json"),
     "pl-PL": () => import("./config/pl-PL.json"),
-    "sv-SE": () => import("./config/sv-SE.json"),
+    "sv-SE": () => import("./config/sv-SE.json")
   };
 
   create(): void {
@@ -94,7 +94,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
     this.store = createStore();
 
-    this.store.subscribe((_state) => {
+    this.store.subscribe(_state => {
       this.renderDownloadDialogue();
     });
 
@@ -382,7 +382,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
         this.fire(OpenSeadragonExtensionEvents.CURRENT_VIEW_URI, {
           cropUri: this.getCroppedImageUri(canvas, this.getViewer()),
-          fullUri: this.getConfinedImageUri(canvas, canvas.getWidth()),
+          fullUri: this.getConfinedImageUri(canvas, canvas.getWidth())
         });
       }
     );
@@ -492,7 +492,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
     this.extensionHost.subscribe(
       IIIFEvents.SHOW_DOWNLOAD_DIALOGUE,
-      (triggerButton) => {
+      triggerButton => {
         this.store.getState().openDownloadDialogue(triggerButton[0]);
       }
     );
@@ -623,7 +623,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
     const {
       downloadDialogueOpen,
-      dialogueTriggerButton,
+      dialogueTriggerButton
     } = this.store.getState() as OpenSeadragonExtensionState;
 
     // todo: can the overlay visibility be added to the store?
@@ -702,7 +702,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
         onShowTermsOfUse: () => {
           this.store.getState().closeDialogue();
           this.extensionHost.publish(IIIFEvents.SHOW_TERMS_OF_USE);
-        },
+        }
       })
     );
   }
@@ -788,7 +788,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
       annotationGroup.canvasIndex = canvasIndex as number;
 
       const match: AnnotationGroup = groupedAnnotations.filter(
-        (x) => x.canvasId === annotationGroup.canvasId
+        x => x.canvasId === annotationGroup.canvasId
       )[0];
 
       // if there's already an annotation for that target, add a rect to it, otherwise create a new AnnotationGroup
@@ -817,7 +817,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
       annotationGroup.canvasIndex = canvasIndex as number;
 
       const match: AnnotationGroup = groupedAnnotations.filter(
-        (x) => x.canvasId === annotationGroup.canvasId
+        x => x.canvasId === annotationGroup.canvasId
       )[0];
 
       // if there's already an annotation for that target, add a rect to it, otherwise create a new AnnotationGroup
@@ -1460,8 +1460,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
     cb: (results: AnnotationGroup[]) => void
   ): void {
     fetch(searchUri)
-      .then((response) => response.json())
-      .then((results) => {
+      .then(response => response.json())
+      .then(results => {
         if (results.resources && results.resources.length) {
           searchResults = searchResults.concat(
             this.groupOpenAnnotationsByTarget(results)
@@ -1479,7 +1479,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
   getAnnotationRects(): AnnotationRect[] {
     if (this.annotations.length) {
       return this.annotations
-        .map((x) => {
+        .map(x => {
           return x.rects;
         })
         .reduce((a, b) => {
@@ -1560,7 +1560,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     const manifest = this.helper.manifest;
     const sequence = manifest!.getSequences()[0];
     const canvases = sequence.getCanvases();
-    const paged = (!!this.getSettings().pagingEnabled && this.helper.isPaged());
+    const paged = !!this.getSettings().pagingEnabled && this.helper.isPaged();
     const viewingDirection = this.helper.getViewingDirection();
 
     let indices: number[] = [];

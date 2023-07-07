@@ -7,12 +7,12 @@ import {
   IExternalResource,
   Canvas,
   Annotation,
-  AnnotationBody,
+  AnnotationBody
 } from "manifesto.js";
 
 import {
   applyPolyfills,
-  defineCustomElements,
+  defineCustomElements
 } from "@universalviewer/uv-ebook-components/loader";
 import { Events } from "../../../../Events";
 
@@ -89,7 +89,7 @@ export class EbookCenterPanel extends CenterPanel {
       EbookExtensionEvents.ITEM_CLICKED,
       (href: string) => {
         this._nextState({
-          cfi: href,
+          cfi: href
         });
       }
     );
@@ -104,7 +104,7 @@ export class EbookCenterPanel extends CenterPanel {
           () => {
             if (cfi !== this._cfi) {
               this._nextState({
-                cfi: cfi,
+                cfi: cfi
               });
             }
           }
@@ -128,7 +128,7 @@ export class EbookCenterPanel extends CenterPanel {
           //const format: MediaType | null = media.getFormat();
 
           this._nextState({
-            bookPath: media.id,
+            bookPath: media.id
           });
         }
       }

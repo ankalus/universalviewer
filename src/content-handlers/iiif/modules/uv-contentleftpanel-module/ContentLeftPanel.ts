@@ -18,7 +18,7 @@ import {
   Thumb,
   TreeNode,
   TreeNodeType,
-  Range,
+  Range
 } from "manifesto.js";
 import { AnnotationGroup, TreeSortType } from "@iiif/manifold";
 import { isVisible } from "../../../../Utils";
@@ -259,10 +259,10 @@ export class ContentLeftPanel extends LeftPanel {
         const range: Range = topRanges[i];
         this.$treeSelect.append(
           '<option value="' +
-          range.id +
-          '">' +
-          LanguageMap.getValue(range.getLabel()) +
-          "</option>"
+            range.id +
+            '">' +
+            LanguageMap.getValue(range.getLabel()) +
+            "</option>"
         );
       }
     }
@@ -349,7 +349,7 @@ export class ContentLeftPanel extends LeftPanel {
       ),
       helper: this.extension.helper,
       topRangeIndex: this.getSelectedTopRangeIndex(),
-      treeSortType: this.treeSortType,
+      treeSortType: this.treeSortType
     };
   }
 
@@ -456,10 +456,8 @@ export class ContentLeftPanel extends LeftPanel {
     //   height = this.config.options.oneColThumbHeight;
     // }
 
-    const thumbs: Thumb[] = <Thumb[]>(
-      this.extension.helper.getThumbs(90)
-      // this.extension.helper.getThumbs(width, height)
-    );
+    const thumbs: Thumb[] = <Thumb[]>this.extension.helper.getThumbs(90);
+    // this.extension.helper.getThumbs(width, height)
 
     if (
       viewingDirection &&
@@ -479,7 +477,7 @@ export class ContentLeftPanel extends LeftPanel {
 
         // find the thumb with the same canvasIndex and add the searchResult
         let thumb: Thumb = thumbs.filter(
-          (t) => t.index === searchResult.canvasIndex
+          t => t.index === searchResult.canvasIndex
         )[0];
 
         if (thumb) {
@@ -491,7 +489,9 @@ export class ContentLeftPanel extends LeftPanel {
       }
     }
 
-    const paged: boolean = (!!this.extension.getSettings().pagingEnabled && this.extension.helper.isPaged());
+    const paged: boolean =
+      !!this.extension.getSettings().pagingEnabled &&
+      this.extension.helper.isPaged();
 
     const selectedIndices: number[] = this.extension.getPagedIndices(
       this.extension.helper.canvasIndex
@@ -507,7 +507,7 @@ export class ContentLeftPanel extends LeftPanel {
         selected: selectedIndices,
         onClick: (thumb: Thumb) => {
           this.extensionHost.publish(IIIFEvents.THUMB_SELECTED, thumb);
-        },
+        }
       })
     );
   }
@@ -542,7 +542,7 @@ export class ContentLeftPanel extends LeftPanel {
       thumbHeight: this.config.options.galleryThumbHeight,
       thumbLoadPadding: this.config.options.galleryThumbLoadPadding,
       thumbWidth: this.config.options.galleryThumbWidth,
-      viewingDirection: this.getViewingDirection(),
+      viewingDirection: this.getViewingDirection()
     };
   }
 
@@ -555,7 +555,7 @@ export class ContentLeftPanel extends LeftPanel {
       return (
         Bools.getBool(this.config.options.pageModeEnabled, true) &&
         (<OpenSeadragonExtension>this.extension).getMode().toString() ===
-        Mode.page.toString()
+          Mode.page.toString()
       );
     }
     return Bools.getBool(this.config.options.pageModeEnabled, true);
@@ -818,7 +818,7 @@ export class ContentLeftPanel extends LeftPanel {
 
     let nodeFound: boolean = false;
 
-    allNodes.map((node) => {
+    allNodes.map(node => {
       if (node.isCollection() && node.data.index === collectionIndex) {
         this.treeView.selectNode(node as TreeNode);
         this.treeView.expandNode(node as TreeNode, true);
@@ -841,8 +841,8 @@ export class ContentLeftPanel extends LeftPanel {
 
     this.$tabsContent.height(
       this.$main.height() -
-      (isVisible(this.$tabs) ? this.$tabs.height() : 0) -
-      this.$tabsContent.verticalPadding()
+        (isVisible(this.$tabs) ? this.$tabs.height() : 0) -
+        this.$tabsContent.verticalPadding()
     );
     this.$views.height(
       this.$tabsContent.height() - this.$options.outerHeight()

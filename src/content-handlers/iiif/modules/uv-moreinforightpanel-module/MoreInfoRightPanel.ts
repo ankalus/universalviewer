@@ -37,7 +37,7 @@ export class MoreInfoRightPanel extends RightPanel {
 
     this.metadataComponent = new MetadataComponent({
       target: <HTMLElement>this.$metadata[0],
-      data: this._getData(),
+      data: this._getData()
     });
 
     this.metadataComponent.on(
@@ -49,10 +49,7 @@ export class MoreInfoRightPanel extends RightPanel {
           href
         );
         // Time change.
-        const time: string | null = Urls.getHashParameterFromString(
-          "t",
-          href
-        );
+        const time: string | null = Urls.getHashParameterFromString("t", href);
 
         if (rangeId && time === null) {
           const range: Range | null = this.extension.helper.getRangeById(
@@ -67,17 +64,22 @@ export class MoreInfoRightPanel extends RightPanel {
         if (time !== null) {
           const timeAsNumber = Number(time);
           if (!Number.isNaN(timeAsNumber)) {
-
             if (rangeId) {
               // We want to make the time change RELATIVE to the start of the range.
               const range: Range | null = this.extension.helper.getRangeById(
                 rangeId
               );
               if (range) {
-                this.extensionHost.publish(IIIFEvents.RANGE_TIME_CHANGE, { rangeId: range.id, time: timeAsNumber });
+                this.extensionHost.publish(IIIFEvents.RANGE_TIME_CHANGE, {
+                  rangeId: range.id,
+                  time: timeAsNumber
+                });
               }
-            }  else {
-              this.extensionHost.publish(IIIFEvents.CURRENT_TIME_CHANGE, timeAsNumber);
+            } else {
+              this.extensionHost.publish(
+                IIIFEvents.CURRENT_TIME_CHANGE,
+                timeAsNumber
+              );
             }
           }
         }
@@ -128,7 +130,7 @@ export class MoreInfoRightPanel extends RightPanel {
       sanitizer: (html: string) => {
         return sanitize(html);
       },
-      showAllLanguages: this.config.options.showAllLanguages,
+      showAllLanguages: this.config.options.showAllLanguages
     };
   }
 

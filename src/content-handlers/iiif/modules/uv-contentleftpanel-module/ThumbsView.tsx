@@ -10,7 +10,7 @@ const ThumbImage = ({
   paged,
   selected,
   thumb,
-  viewingDirection,
+  viewingDirection
 }: {
   first: boolean;
   onClick: (thumb: Thumb) => void;
@@ -22,7 +22,7 @@ const ThumbImage = ({
   const [ref, inView] = useInView({
     threshold: 0,
     rootMargin: "0px 0px 0px 0px",
-    triggerOnce: true,
+    triggerOnce: true
   });
 
   return (
@@ -36,7 +36,7 @@ const ThumbImage = ({
           (viewingDirection === ViewingDirection.LEFT_TO_RIGHT ||
             viewingDirection === ViewingDirection.RIGHT_TO_LEFT),
         oneCol: !paged,
-        selected: selected,
+        selected: selected
       })}
       tabIndex={0}
     >
@@ -44,7 +44,7 @@ const ThumbImage = ({
         ref={ref}
         className="wrap"
         style={{
-          height: thumb.height + 8 + "px",
+          height: thumb.height + 8 + "px"
         }}
       >
         {inView && <img src={thumb.uri} alt={thumb.label} />}
@@ -67,7 +67,7 @@ const Thumbnails = ({
   paged,
   selected,
   thumbs,
-  viewingDirection,
+  viewingDirection
 }: {
   onClick: (thumb: Thumb) => void;
   paged: boolean;
@@ -78,12 +78,14 @@ const Thumbnails = ({
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const thumb: HTMLElement = ref.current?.querySelector(`#thumb-${selected[0]}`) as HTMLElement;
+    const thumb: HTMLElement = ref.current?.querySelector(
+      `#thumb-${selected[0]}`
+    ) as HTMLElement;
     const y: number = thumb?.offsetTop;
     ref.current?.parentElement!.scrollTo({
       top: y,
       left: 0,
-      behavior: 'smooth'
+      behavior: "smooth"
     });
   }, [selected]);
 
@@ -104,7 +106,7 @@ const Thumbnails = ({
     return true;
   }
 
-  const firstNonPagedIndex: number = thumbs.findIndex((t) => {
+  const firstNonPagedIndex: number = thumbs.findIndex(t => {
     return t.viewingHint !== ViewingHint.NON_PAGED;
   });
 
@@ -114,7 +116,7 @@ const Thumbnails = ({
       className={cx("thumbs", {
         "left-to-right": viewingDirection === ViewingDirection.LEFT_TO_RIGHT,
         "right-to-left": viewingDirection === ViewingDirection.RIGHT_TO_LEFT,
-        paged: paged,
+        paged: paged
       })}
     >
       {thumbs.map((thumb, index) => (

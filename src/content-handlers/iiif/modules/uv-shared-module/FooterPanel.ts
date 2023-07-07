@@ -153,7 +153,7 @@ export class FooterPanel extends BaseView {
 
     this.onAccessibleClick(
       this.$fullScreenBtn,
-      (e) => {
+      e => {
         e.preventDefault();
         this.extensionHost.publish(Events.TOGGLE_FULLSCREEN);
       },

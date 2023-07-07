@@ -109,7 +109,7 @@ export function parseContentState(
       );
     }
     // resolve.
-    return fetch(state).then((r) => r.json());
+    return fetch(state).then(r => r.json());
   }
 
   return parseContentState(decodeContentState(state), asyncOrFetcher as any);
@@ -206,6 +206,6 @@ export function normaliseContentState(
     type: "Annotation",
     motivation: ["contentState", ...((state as any).motivation || [])],
     target: targets,
-    extensions: {},
+    extensions: {}
   };
 }

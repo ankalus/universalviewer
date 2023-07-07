@@ -60,7 +60,7 @@ export class RestrictedDialogue extends Dialogue {
 
     this.$element.hide();
 
-    this.$cancelButton.on("click", (e) => {
+    this.$cancelButton.on("click", e => {
       e.preventDefault();
       this.close();
     });

@@ -62,7 +62,7 @@ export class RightPanel extends BaseExpandPanel {
     this.$element.css({
       left: Math.floor(
         this.$element.parent().width() - this.$element.outerWidth()
-      ),
+      )
     });
   }
 }

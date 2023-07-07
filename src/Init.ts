@@ -45,7 +45,7 @@ export const init = (el: string | HTMLDivElement, data) => {
 
   uv = new UniversalViewer({
     target: uvDiv,
-    data: data,
+    data: data
   });
 
   // todo: can we remove the following two event listeners

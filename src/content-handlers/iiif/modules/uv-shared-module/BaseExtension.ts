@@ -16,7 +16,7 @@ import {
   AnnotationGroup,
   ExternalResource,
   Helper,
-  ILabelValuePair,
+  ILabelValuePair
 } from "@iiif/manifold";
 // import { ExternalResource } from "./TestExternalResource";
 import {
@@ -30,7 +30,7 @@ import {
   // IExternalImageResourceData,
   IManifestoOptions,
   Manifest,
-  Range,
+  Range
 } from "manifesto.js";
 import { ViewingHint } from "@iiif/vocabulary/dist-commonjs/";
 import * as KeyCodes from "@edsilv/key-codes";
@@ -41,7 +41,7 @@ import {
   Storage,
   StorageType,
   Urls,
-  Strings,
+  Strings
 } from "@edsilv/utils";
 import { isVisible } from "../../../../Utils";
 import { IIIFEvents } from "../../IIIFEvents";
@@ -143,7 +143,7 @@ export class BaseExtension implements IExtension {
       this.$element.addClass("fullscreen");
     }
 
-    this.$element.on("mousemove", (e) => {
+    this.$element.on("mousemove", e => {
       this.mouseX = e.pageX;
       this.mouseY = e.pageY;
     });
@@ -164,7 +164,7 @@ export class BaseExtension implements IExtension {
       }
 
       if (Bools.getBool(this.data.config.options.dropEnabled, true)) {
-        this.$element.on("drop", (e) => {
+        this.$element.on("drop", e => {
           e.preventDefault();
           const dropUrl: any = (<any>e.originalEvent).dataTransfer.getData(
             "URL"
@@ -195,7 +195,7 @@ export class BaseExtension implements IExtension {
         });
       }
 
-      this.$element.on("dragover", (e) => {
+      this.$element.on("dragover", e => {
         // allow drop
         e.preventDefault();
       });
@@ -281,7 +281,7 @@ export class BaseExtension implements IExtension {
         Events.DROP,
         Events.TOGGLE_FULLSCREEN,
         Events.EXTERNAL_RESOURCE_OPENED,
-        Events.RELOAD,
+        Events.RELOAD
       ];
 
       if (!exceptions.includes(event)) {
@@ -319,7 +319,8 @@ export class BaseExtension implements IExtension {
     );
 
     this.extensionHost.subscribe(IIIFEvents.CLOSE_LEFT_PANEL, () => {
-      if (that.$element.hasClass("loading")) that.$element.removeClass("loading")
+      if (that.$element.hasClass("loading"))
+        that.$element.removeClass("loading");
       this.resize();
     });
 
@@ -457,7 +458,7 @@ export class BaseExtension implements IExtension {
 
       this.fire(Events.TOGGLE_FULLSCREEN, {
         isFullScreen: this.extensionHost.isFullScreen,
-        overrideFullScreen: overrideFullScreen,
+        overrideFullScreen: overrideFullScreen
       });
     });
 
@@ -815,7 +816,7 @@ export class BaseExtension implements IExtension {
 
     return <ISharePreview>{
       title: title,
-      image: thumbnail,
+      image: thumbnail
     };
   }
 
@@ -878,7 +879,7 @@ export class BaseExtension implements IExtension {
 
       if (!canvas.externalResource) {
         r = new ExternalResource(canvas, <IExternalResourceOptions>{
-          authApiVersion: this.data.config.options.authAPIVersion,
+          authApiVersion: this.data.config.options.authAPIVersion
         });
       } else {
         r = canvas.externalResource;
@@ -907,9 +908,9 @@ export class BaseExtension implements IExtension {
 
     // if using auth api v1
     if (authAPIVersion === 1) {
-      return new Promise<IExternalResourceData[]>((resolve) => {
+      return new Promise<IExternalResourceData[]>(resolve => {
         const options: IManifestoOptions = <IManifestoOptions>{
-          locale: this.helper.options.locale,
+          locale: this.helper.options.locale
         };
 
         Auth1.loadExternalResources(
@@ -925,7 +926,7 @@ export class BaseExtension implements IExtension {
         });
       });
     } else {
-      return new Promise<any[]>((resolve) => {
+      return new Promise<any[]>(resolve => {
         Auth09.loadExternalResources(resourcesToLoad, storageStrategy).then(
           (r: any[]) => {
             this.resources = r.map((resource: IExternalResource) => {
@@ -969,7 +970,7 @@ export class BaseExtension implements IExtension {
         type: canvas.getType(),
         getFormat: function() {
           return "";
-        },
+        }
       };
 
       return [body];
@@ -997,7 +998,7 @@ export class BaseExtension implements IExtension {
       message: message,
       acceptCallback: acceptCallback,
       buttonText: buttonText,
-      allowClose: allowClose,
+      allowClose: allowClose
     });
   }
 
@@ -1177,7 +1178,7 @@ class BrowserDetect {
     { string: navigator.userAgent, subString: "Trident", identity: "Explorer" },
     { string: navigator.userAgent, subString: "Firefox", identity: "Firefox" },
     { string: navigator.userAgent, subString: "Safari", identity: "Safari" },
-    { string: navigator.userAgent, subString: "Opera", identity: "Opera" },
+    { string: navigator.userAgent, subString: "Opera", identity: "Opera" }
   ];
 
   public init() {

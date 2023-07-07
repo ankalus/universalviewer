@@ -7,7 +7,7 @@ import {
   AnnotationBody,
   Canvas,
   IExternalResource,
-  LanguageMap,
+  LanguageMap
 } from "manifesto.js";
 import { Events } from "../../../../Events";
 

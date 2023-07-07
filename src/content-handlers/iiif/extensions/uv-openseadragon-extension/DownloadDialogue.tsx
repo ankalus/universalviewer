@@ -14,7 +14,7 @@ import {
   Rendering,
   LanguageMap,
   Sequence,
-  Manifest,
+  Manifest
 } from "manifesto.js";
 import { DownloadOption } from "../../modules/uv-shared-module/DownloadOption";
 import { MediaType } from "@iiif/vocabulary";
@@ -44,7 +44,7 @@ const DownloadDialogue = ({
   selectionEnabled,
   sequence,
   termsOfUseEnabled,
-  triggerButton,
+  triggerButton
 }: {
   canvases: Canvas[];
   confinedImageSize: number;
@@ -379,7 +379,7 @@ const DownloadDialogue = ({
 
   function Renderings({
     resource,
-    defaultLabel,
+    defaultLabel
   }: {
     resource: ManifestResource;
     defaultLabel: string;
@@ -519,7 +519,7 @@ const DownloadDialogue = ({
                   setSelectedPage("left");
                 }}
                 className={cx("page left", {
-                  selected: selectedPage === "left",
+                  selected: selectedPage === "left"
                 })}
               >
                 <span className="label">
@@ -531,7 +531,7 @@ const DownloadDialogue = ({
                   setSelectedPage("right");
                 }}
                 className={cx("page right", {
-                  selected: selectedPage === "right",
+                  selected: selectedPage === "right"
                 })}
               >
                 <span className="label">
@@ -630,7 +630,7 @@ const DownloadDialogue = ({
       <div
         className={cx("bottom")}
         style={{
-          backgroundPosition: arrowPosition,
+          backgroundPosition: arrowPosition
         }}
       ></div>
     </div>

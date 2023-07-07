@@ -14,7 +14,7 @@ import {
   Range,
   Resource,
   Size,
-  Utils,
+  Utils
 } from "manifesto.js";
 
 export class DownloadDialogue extends BaseDownloadDialogue {
@@ -139,7 +139,7 @@ export class DownloadDialogue extends BaseDownloadDialogue {
 
     // what happens on download is specific to the extension (except for renderings which need to be moved to the base download dialogue)
     // todo: we need to make everything a list of radio button options in the base class, then we can unify everything into a single render method
-    this.$downloadButton.on("click", (e) => {
+    this.$downloadButton.on("click", e => {
       e.preventDefault();
 
       const $selectedOption: JQuery = that.getSelectedOption();
@@ -230,7 +230,7 @@ export class DownloadDialogue extends BaseDownloadDialogue {
 
       this.extensionHost.publish(IIIFEvents.DOWNLOAD, {
         type: type,
-        label: label,
+        label: label
       });
 
       this.close();

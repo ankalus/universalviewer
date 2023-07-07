@@ -8,7 +8,7 @@ import {
   IExternalResource,
   LabelValuePair,
   LanguageMap,
-  Range,
+  Range
 } from "manifesto.js";
 import { MetadataGroup, MetadataOptions } from "@iiif/manifold";
 import { AVComponent } from "@iiif/iiif-av-component/dist-esmodule";
@@ -92,7 +92,7 @@ export class AVCenterPanel extends CenterPanel {
           this.avcomponent.set({
             limitToRange: this._limitToRange(),
             constrainNavigationToRange: this._limitToRange(),
-            autoAdvanceRanges: this._autoAdvanceRanges(),
+            autoAdvanceRanges: this._autoAdvanceRanges()
           });
         }
       });
@@ -108,7 +108,7 @@ export class AVCenterPanel extends CenterPanel {
       this._whenMediaReady(() => {
         if (this.avcomponent) {
           this.avcomponent.set({
-            virtualCanvasEnabled: false,
+            virtualCanvasEnabled: false
           });
 
           const canvas: Canvas | null = this.extension.helper.getCurrentCanvas();
@@ -126,7 +126,7 @@ export class AVCenterPanel extends CenterPanel {
       this._whenMediaReady(() => {
         if (this.avcomponent) {
           this.avcomponent.set({
-            virtualCanvasEnabled: true,
+            virtualCanvasEnabled: true
           });
         }
       });
@@ -163,11 +163,11 @@ export class AVCenterPanel extends CenterPanel {
       data: {
         posterImageExpanded: this.options.posterImageExpanded,
         enableFastForward: true,
-        enableFastRewind: true,
+        enableFastRewind: true
       }
     });
 
-    this.avcomponent.on('mediaerror', (err) => {
+    this.avcomponent.on("mediaerror", err => {
       if (!this.config.options.hideMediaError) {
         this.extensionHost.publish(IIIFEvents.SHOW_MESSAGE, [err]);
       }
@@ -326,7 +326,7 @@ export class AVCenterPanel extends CenterPanel {
           defaultAspectRatio: 0.56,
           doubleClickMS: 350,
           limitToRange: this._limitToRange(),
-          posterImageRatio: this.config.options.posterImageRatio,
+          posterImageRatio: this.config.options.posterImageRatio
         });
 
         if (didReset) {

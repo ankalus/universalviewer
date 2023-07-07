@@ -26,7 +26,7 @@ export function parseSelector(source: Selector | Selector[]): ParsedSelector {
       },
       {
         selector: null,
-        selectors: [],
+        selectors: []
       } as ParsedSelector
     );
   }
@@ -34,7 +34,7 @@ export function parseSelector(source: Selector | Selector[]): ParsedSelector {
   if (!source) {
     return {
       selector: null,
-      selectors: [],
+      selectors: []
     };
   }
 
@@ -45,7 +45,7 @@ export function parseSelector(source: Selector | Selector[]): ParsedSelector {
       // This is an unknown selector.
       return {
         selector: null,
-        selectors: [],
+        selectors: []
       };
     }
 
@@ -55,12 +55,12 @@ export function parseSelector(source: Selector | Selector[]): ParsedSelector {
   if (source.type === "PointSelector" && (source.t || source.t === 0)) {
     const selector: TemporalSelector = {
       type: "TemporalSelector",
-      startTime: source.t,
+      startTime: source.t
     };
 
     return {
       selector,
-      selectors: [selector],
+      selectors: [selector]
     };
   }
 
@@ -73,12 +73,12 @@ export function parseSelector(source: Selector | Selector[]): ParsedSelector {
         x: parseFloat(matchBoxSelector[3]),
         y: parseFloat(matchBoxSelector[4]),
         width: parseFloat(matchBoxSelector[5]),
-        height: parseFloat(matchBoxSelector[6]),
+        height: parseFloat(matchBoxSelector[6])
       };
 
       return {
         selector,
-        selectors: [selector],
+        selectors: [selector]
       };
     }
 
@@ -89,23 +89,23 @@ export function parseSelector(source: Selector | Selector[]): ParsedSelector {
         startTime: matchTimeSelector[4] ? parseFloat(matchTimeSelector[4]) : 0,
         endTime: matchTimeSelector[7]
           ? parseFloat(matchTimeSelector[7])
-          : undefined,
+          : undefined
       };
 
       return {
         selector,
-        selectors: [selector],
+        selectors: [selector]
       };
     }
 
     return {
       selector: null,
-      selectors: [],
+      selectors: []
     };
   }
 
   return {
     selector: null,
-    selectors: [],
+    selectors: []
   };
 }

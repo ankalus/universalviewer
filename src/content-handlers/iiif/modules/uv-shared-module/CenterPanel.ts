@@ -70,12 +70,12 @@ export class CenterPanel extends BaseView {
     this.closeAttribution();
 
     this.$closeAttributionButton = this.$attribution.find(".header .close");
-    this.$closeAttributionButton.on("click", (e) => {
+    this.$closeAttributionButton.on("click", e => {
       e.preventDefault();
       this.closeAttribution();
     });
 
-    this.$subtitleExpand.on("click", (e) => {
+    this.$subtitleExpand.on("click", e => {
       e.preventDefault();
 
       this.subtitleExpanded = !this.subtitleExpanded;
@@ -189,11 +189,9 @@ export class CenterPanel extends BaseView {
           }
         });
 
-      $attributionText
-        .find("img")
-        .one('error', () => {
-          resize();
-        })
+      $attributionText.find("img").one("error", () => {
+        resize();
+      });
 
       $attributionText.targetBlank();
     }
@@ -239,7 +237,7 @@ export class CenterPanel extends BaseView {
 
     this.$element.css({
       left: leftPanelWidth,
-      width: width,
+      width: width
     });
 
     let titleHeight: number;
@@ -265,10 +263,10 @@ export class CenterPanel extends BaseView {
 
     this.$content.height(this.$element.height() - titleHeight - subtitleHeight);
     this.$content.width(this.$element.width());
-    const $text = this.$attribution.find('.attribution-text');
+    const $text = this.$attribution.find(".attribution-text");
 
     $text.css("maxHeight", `calc(${this.$content.height()}px - 100px)`);
-    $text.css('overflow-y', 'auto');
+    $text.css("overflow-y", "auto");
 
     if (this.$attribution && this.isAttributionOpen) {
       switch (this.attributionPosition) {

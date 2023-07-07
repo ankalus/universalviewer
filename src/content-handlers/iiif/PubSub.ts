@@ -10,7 +10,7 @@ export class PubSub {
   public publish(name: string, args?: any, extra?: any) {
     const handlers: EventHandler[] = this.events[name];
     if (handlers) {
-      handlers.forEach((handler) => {
+      handlers.forEach(handler => {
         handler.call(this, args, extra);
       });
     }

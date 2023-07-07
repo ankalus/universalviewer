@@ -4,7 +4,7 @@ import jQueryPlugins from "./JQueryPlugins";
 jQueryPlugins($);
 import {
   ExtensionLoader,
-  IExtension,
+  IExtension
 } from "./modules/uv-shared-module/IExtension";
 import { IIIFExtensionHost } from "./IIIFExtensionHost";
 import { IUVData } from "@/IUVData";
@@ -12,7 +12,7 @@ import { EventHandlerWithName, PubSub } from "./PubSub";
 import {
   RenderingFormat,
   MediaType,
-  ExternalResourceType,
+  ExternalResourceType
 } from "@iiif/vocabulary/dist-commonjs/";
 import { Helper, loadManifest, IManifoldOptions } from "@iiif/manifold";
 import { Annotation, AnnotationBody, Canvas } from "manifesto.js";
@@ -35,66 +35,64 @@ const Extension: IExtensionRegistry = {
   AV: {
     name: "uv-av-extension",
     loader: () =>
-      /* webpackMode: "lazy" */ import(
-      "./extensions/uv-av-extension/Extension"
-    ),
+      /* webpackMode: "lazy" */ import("./extensions/uv-av-extension/Extension")
   },
   ALEPH: {
     name: "uv-aleph-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-      "./extensions/uv-aleph-extension/Extension"
-    ),
+        "./extensions/uv-aleph-extension/Extension"
+      )
   },
   DEFAULT: {
     name: "uv-default-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-      "./extensions/uv-default-extension/Extension"
-    ),
+        "./extensions/uv-default-extension/Extension"
+      )
   },
   EBOOK: {
     name: "uv-ebook-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-      "./extensions/uv-ebook-extension/Extension"
-    ),
+        "./extensions/uv-ebook-extension/Extension"
+      )
   },
   MEDIAELEMENT: {
     name: "uv-mediaelement-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-      "./extensions/uv-mediaelement-extension/Extension"
-    ),
+        "./extensions/uv-mediaelement-extension/Extension"
+      )
   },
   MODELVIEWER: {
     name: "uv-model-viewer-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-      "./extensions/uv-model-viewer-extension/Extension"
-    ),
+        "./extensions/uv-model-viewer-extension/Extension"
+      )
   },
   OSD: {
     name: "uv-openseadragon-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-      "./extensions/uv-openseadragon-extension/Extension"
-    ),
+        "./extensions/uv-openseadragon-extension/Extension"
+      )
   },
   PDF: {
     name: "uv-pdf-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-      "./extensions/uv-pdf-extension/Extension"
-    ),
+        "./extensions/uv-pdf-extension/Extension"
+      )
   },
   SLIDEATLAS: {
     name: "uv-openseadragon-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-      "./extensions/uv-openseadragon-extension/Extension"
-    ),
-  },
+        "./extensions/uv-openseadragon-extension/Extension"
+      )
+  }
 };
 
 export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
@@ -151,7 +149,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
     this.on(
       Events.CREATED,
-      (_obj) => {
+      _obj => {
         this.hideSpinner();
       },
       false
@@ -159,7 +157,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
     this.on(
       Events.RELOAD,
-      (data) => {
+      data => {
         data.isReload = true;
         this.set(data);
       },
@@ -295,7 +293,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
         canvasId: data.canvasId,
         canvasIndex: data.canvasIndex || 0,
         rangeId: data.rangeId,
-        locale: data.locales ? data.locales[0].name : undefined,
+        locale: data.locales ? data.locales[0].name : undefined
       } as IManifoldOptions);
 
       let trackingLabel: string | null = helper.getTrackingLabel();

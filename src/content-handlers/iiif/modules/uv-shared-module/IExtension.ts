@@ -5,7 +5,7 @@ import {
   IExternalResource,
   IExternalResourceData,
   Range,
-  Manifest,
+  Manifest
 } from "manifesto.js";
 import { ILocale } from "./ILocale";
 import { IIIFExtensionHost } from "../../IIIFExtensionHost";

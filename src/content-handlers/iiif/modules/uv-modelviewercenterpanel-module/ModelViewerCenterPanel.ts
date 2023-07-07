@@ -102,7 +102,7 @@ export class ModelViewerCenterPanel extends CenterPanel {
         );
         const canvas: Canvas = that.extension.helper.getCurrentCanvas();
         this.extensionHost.publish(ModelViewerExtensionEvents.DOUBLECLICK, {
-          target: `${canvas.id}#xyz=${point.position.x},${point.position.y},${point.position.z}&nxyz=${point.normal.x},${point.normal.y},${point.normal.z}`,
+          target: `${canvas.id}#xyz=${point.position.x},${point.position.y},${point.position.z}&nxyz=${point.normal.x},${point.normal.y},${point.normal.z}`
         });
       }
     });
@@ -121,7 +121,7 @@ export class ModelViewerCenterPanel extends CenterPanel {
     const annotationGroups: AnnotationGroup[] | null = (this
       .extension as ModelViewerExtension).annotations;
 
-    annotationGroups.forEach((annoGroup) => {
+    annotationGroups.forEach(annoGroup => {
       annoGroup.points3D.forEach((point, index) => {
         const div = document.createElement("DIV");
         div.id = "annotation-" + point.canvasIndex + "-" + index;
@@ -148,7 +148,7 @@ export class ModelViewerCenterPanel extends CenterPanel {
 
   private clearAnnotations(): void {
     const nodes = this.$modelviewer[0].querySelectorAll(".annotationPin");
-    [].forEach.call(nodes, (node) => {
+    [].forEach.call(nodes, node => {
       node.parentNode.removeChild(node);
     });
   }

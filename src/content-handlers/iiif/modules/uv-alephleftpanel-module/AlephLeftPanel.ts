@@ -3,7 +3,7 @@ import { LeftPanel } from "../uv-shared-module/LeftPanel";
 import { AlephExtensionEvents } from "../../extensions/uv-aleph-extension/Events";
 import {
   applyPolyfills,
-  defineCustomElements,
+  defineCustomElements
 } from "@universalviewer/aleph/loader";
 
 export class AlephLeftPanel extends LeftPanel {

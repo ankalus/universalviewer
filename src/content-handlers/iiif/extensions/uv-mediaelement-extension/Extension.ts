@@ -15,14 +15,14 @@ import { ShareDialogue } from "./ShareDialogue";
 import { Bools, Strings } from "@edsilv/utils";
 import {
   ExternalResourceType,
-  MediaType,
+  MediaType
 } from "@iiif/vocabulary/dist-commonjs/";
 import {
   LanguageMap,
   Thumb,
   Canvas,
   Annotation,
-  AnnotationBody,
+  AnnotationBody
 } from "manifesto.js";
 import { TFragment } from "../../modules/uv-shared-module/TFragment";
 import "./theme/theme.less";
@@ -50,7 +50,7 @@ export default class Extension extends BaseExtension
     "cy-GB": () => import("./config/cy-GB.json"),
     "fr-FR": () => import("./config/fr-FR.json"),
     "pl-PL": () => import("./config/pl-PL.json"),
-    "sv-SE": () => import("./config/sv-SE.json"),
+    "sv-SE": () => import("./config/sv-SE.json")
   };
 
   create(): void {

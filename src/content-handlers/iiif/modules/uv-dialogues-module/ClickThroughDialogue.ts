@@ -53,7 +53,7 @@ export class ClickThroughDialogue extends Dialogue {
 
     this.$element.hide();
 
-    this.$acceptTermsButton.on("click", (e) => {
+    this.$acceptTermsButton.on("click", e => {
       e.preventDefault();
       this.close();
       this.extensionHost.publish(IIIFEvents.ACCEPT_TERMS);

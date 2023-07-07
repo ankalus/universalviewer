@@ -67,19 +67,19 @@ export class LoginDialogue extends Dialogue {
 
     this.$element.hide();
 
-    this.$loginButton.on("click", (e) => {
+    this.$loginButton.on("click", e => {
       e.preventDefault();
       this.close();
       if (this.loginCallback) this.loginCallback();
     });
 
-    this.$logoutButton.on("click", (e) => {
+    this.$logoutButton.on("click", e => {
       e.preventDefault();
       this.close();
       if (this.logoutCallback) this.logoutCallback();
     });
 
-    this.$cancelButton.on("click", (e) => {
+    this.$cancelButton.on("click", e => {
       e.preventDefault();
       this.close();
     });

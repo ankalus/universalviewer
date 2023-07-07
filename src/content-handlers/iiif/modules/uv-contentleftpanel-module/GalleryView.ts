@@ -25,7 +25,7 @@ export class GalleryView extends BaseView {
     const that = this;
 
     this.galleryComponent = new GalleryComponent({
-      target: <HTMLElement>this.$gallery[0],
+      target: <HTMLElement>this.$gallery[0]
     });
 
     this.galleryComponent.on(

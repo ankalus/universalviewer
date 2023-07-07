@@ -31,7 +31,7 @@ export default class Extension extends BaseExtension
   shareDialogue: ShareDialogue;
   defaultConfig: any = defaultConfig;
   locales = {
-    "en-GB": defaultConfig,
+    "en-GB": defaultConfig
   };
 
   create(): void {

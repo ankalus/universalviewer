@@ -15,8 +15,8 @@ export const sanitize = (html: string) => {
       span: ["data-uv-navigate"],
       strong: [],
       sub: [],
-      sup: [],
-    },
+      sup: []
+    }
   });
 };
 
@@ -61,7 +61,7 @@ export const propertyChanged = (
 };
 
 function appendScript(src: string) {
-  return new Promise<void>((resolve) => {
+  return new Promise<void>(resolve => {
     const script = document.createElement("script");
     script.src = src;
     script.onload = () => resolve();
@@ -70,7 +70,7 @@ function appendScript(src: string) {
 }
 
 function appendCSS(src: string) {
-  return new Promise<void>((resolve) => {
+  return new Promise<void>(resolve => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = src;
@@ -101,7 +101,7 @@ export const isVisible = (el: JQuery) => {
 };
 
 export const defaultLocale = {
-  name: "en-GB",
+  name: "en-GB"
 };
 
 export const getUUID = () => {
@@ -291,5 +291,5 @@ export class StorageItem {
 export enum StorageType {
   MEMORY = "memory",
   SESSION = "session",
-  LOCAL = "local",
+  LOCAL = "local"
 }

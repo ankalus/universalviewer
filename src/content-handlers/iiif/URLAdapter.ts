@@ -79,7 +79,7 @@ export class URLAdapter extends UVAdapter {
           firstTarget.source.type === "Canvas"
         ) {
           const manifestSource = (firstTarget.source.partOf || []).find(
-            (s) => s.type === "Manifest"
+            s => s.type === "Manifest"
           );
 
           // get canvas selector
@@ -118,7 +118,7 @@ export class URLAdapter extends UVAdapter {
         // cfi: this.get<string>("cfi", ""),
         // youTubeVideoId: this.get<string>("youTubeVideoId", ""),
         locales: formattedLocales.length ? formattedLocales : undefined,
-        ...overrides,
+        ...overrides
       };
     }
 
@@ -135,7 +135,7 @@ export class URLAdapter extends UVAdapter {
       // cfi: this.get<string>("cfi", ""),
       // youTubeVideoId: this.get<string>("youTubeVideoId", ""),
       locales: formattedLocales.length ? formattedLocales : undefined,
-      ...overrides,
+      ...overrides
     };
   }
 
@@ -164,7 +164,7 @@ export class URLAdapter extends UVAdapter {
 
     uv.on(
       IIIFEvents.COLLECTION_INDEX_CHANGE,
-      (collectionIndex) => {
+      collectionIndex => {
         this.set("c", collectionIndex);
       },
       false
@@ -172,7 +172,7 @@ export class URLAdapter extends UVAdapter {
 
     uv.on(
       IIIFEvents.MANIFEST_INDEX_CHANGE,
-      (manifestIndex) => {
+      manifestIndex => {
         this.set("m", manifestIndex);
       },
       false
@@ -180,7 +180,7 @@ export class URLAdapter extends UVAdapter {
 
     uv.on(
       IIIFEvents.CANVAS_INDEX_CHANGE,
-      (canvasIndex) => {
+      canvasIndex => {
         this.set("cv", canvasIndex);
       },
       false
@@ -188,8 +188,8 @@ export class URLAdapter extends UVAdapter {
 
     uv.on(
       IIIFEvents.RANGE_CHANGE,
-      (range) => {
-        const rangeId = !range || typeof range === 'string' ? range : range.id;
+      range => {
+        const rangeId = !range || typeof range === "string" ? range : range.id;
         this.set("rid", rangeId);
       },
       false
@@ -197,7 +197,7 @@ export class URLAdapter extends UVAdapter {
 
     uv.on(
       IIIFEvents.TARGET_CHANGE,
-      (target) => {
+      target => {
         this.set("xywh", this.getFragment("xywh", target));
       },
       false

@@ -8,7 +8,7 @@ describe("PubSub", () => {
     let eventArgs = undefined;
     let handled = false;
 
-    const handler = (e) => {
+    const handler = e => {
       handled = true;
       eventArgs = e;
     };

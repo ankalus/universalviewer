@@ -5,7 +5,7 @@ import { EbookExtensionEvents } from "../../extensions/uv-ebook-extension/Events
 import { Async } from "@edsilv/utils";
 import {
   applyPolyfills,
-  defineCustomElements,
+  defineCustomElements
 } from "@universalviewer/uv-ebook-components/loader";
 
 export class EbookLeftPanel extends LeftPanel {

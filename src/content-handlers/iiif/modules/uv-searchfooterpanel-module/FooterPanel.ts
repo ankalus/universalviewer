@@ -276,8 +276,8 @@ export class FooterPanel extends BaseFooterPanel {
         this.$searchText,
         (terms: string, cb: (results: string[]) => void) => {
           fetch(Strings.format(autocompleteService, terms))
-            .then((response) => response.json())
-            .then((results) => {
+            .then(response => response.json())
+            .then(results => {
               cb(results);
             });
         },
@@ -295,7 +295,7 @@ export class FooterPanel extends BaseFooterPanel {
         Bools.getBool(this.options.autocompleteAllowWords, false)
       );
     } else {
-      this.$searchText.on("keyup", (e) => {
+      this.$searchText.on("keyup", e => {
         if (e.keyCode === KeyCodes.KeyDown.Enter) {
           that.search(that.$searchText.val());
         }
@@ -531,7 +531,7 @@ export class FooterPanel extends BaseFooterPanel {
       // });
       this.onAccessibleClick(
         $placemarker,
-        (e) => {
+        e => {
           that.extensionHost.publish(
             IIIFEvents.CANVAS_INDEX_CHANGE,
             this.currentPlacemarkerIndex
@@ -554,7 +554,7 @@ export class FooterPanel extends BaseFooterPanel {
 
       $placemarker.css({
         top: top,
-        left: left,
+        left: left
       });
 
       if (i === 0 && shouldFocus) {
@@ -681,7 +681,7 @@ export class FooterPanel extends BaseFooterPanel {
 
     that.$placemarkerDetails.css({
       top: top,
-      left: left,
+      left: left
     });
   }
 
@@ -715,7 +715,7 @@ export class FooterPanel extends BaseFooterPanel {
 
     this.$pagePositionMarker.css({
       top: top,
-      left: left,
+      left: left
     });
 
     // if the remaining distance to the right is less than the width of the label
@@ -733,7 +733,7 @@ export class FooterPanel extends BaseFooterPanel {
 
     this.$pagePositionLabel.css({
       top: top,
-      left: left,
+      left: left
     });
   }
 
@@ -842,7 +842,7 @@ export class FooterPanel extends BaseFooterPanel {
     this.$searchContainer.hide();
 
     this.$searchPagerControls.css({
-      left: 0,
+      left: 0
     });
 
     const $info: JQuery = this.$searchResultsInfo.find(".info");
@@ -891,12 +891,12 @@ export class FooterPanel extends BaseFooterPanel {
 
     // position search pager controls.
     this.$searchPagerControls.css({
-      left: center - this.$searchPagerControls.width() / 2,
+      left: center - this.$searchPagerControls.width() / 2
     });
 
     // position search input.
     this.$searchOptions.css({
-      left: center - this.$searchOptions.outerWidth() / 2,
+      left: center - this.$searchOptions.outerWidth() / 2
     });
   }
 }

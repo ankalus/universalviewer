@@ -84,14 +84,12 @@ export class ShareDialogue extends Dialogue {
     this.$tabs = $('<div class="tabs"></div>');
     this.$content.append(this.$tabs);
 
-
     this.$shareButton = $(
       '<a class="share tab default" tabindex="0">' + this.content.share + "</a>"
     );
     if (Bools.getBool(this.config.options.shareEnabled, true)) {
       this.$tabs.append(this.$shareButton);
     }
-
 
     this.$embedButton = $(
       '<a class="embed tab" tabindex="0">' + this.content.embed + "</a>"
@@ -200,11 +198,11 @@ export class ShareDialogue extends Dialogue {
     );
     this.$footer.append(this.$termsOfUseButton);
 
-    this.$widthInput.on("keydown", (e) => {
+    this.$widthInput.on("keydown", e => {
       return Numbers.numericalInput(e);
     });
 
-    this.$heightInput.on("keydown", (e) => {
+    this.$heightInput.on("keydown", e => {
       return Numbers.numericalInput(e);
     });
 

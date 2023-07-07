@@ -50,7 +50,7 @@ export class MoreInfoDialogue extends Dialogue {
     this.$content.append(this.$metadata);
 
     this.metadataComponent = new MetadataComponent({
-      target: <HTMLElement>this.$metadata[0],
+      target: <HTMLElement>this.$metadata[0]
     });
 
     // hide
@@ -85,7 +85,7 @@ export class MoreInfoDialogue extends Dialogue {
       sanitizer: (html: string) => {
         return sanitize(html);
       },
-      showAllLanguages: this.config.options.showAllLanguages,
+      showAllLanguages: this.config.options.showAllLanguages
     };
   }
 

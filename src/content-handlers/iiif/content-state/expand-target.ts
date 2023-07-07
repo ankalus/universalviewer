@@ -36,10 +36,10 @@ export function expandTarget(
         type: "SpecificResource",
         source: {
           id,
-          type: (options.typeMap && (options.typeMap[id] as any)) || "Unknown",
+          type: (options.typeMap && (options.typeMap[id] as any)) || "Unknown"
         },
         selector: null,
-        selectors: [],
+        selectors: []
       };
     }
 
@@ -48,8 +48,8 @@ export function expandTarget(
       source: { id, type: "Unknown" },
       selector: {
         type: "FragmentSelector",
-        value: fragment,
-      },
+        value: fragment
+      }
     });
   }
 
@@ -73,8 +73,8 @@ export function expandTarget(
       target.source.partOf = [
         {
           id: target.source.partOf,
-          type: "Manifest",
-        },
+          type: "Manifest"
+        }
       ];
     }
 
@@ -86,7 +86,7 @@ export function expandTarget(
       type: "SpecificResource",
       source: target.source,
       selector,
-      selectors,
+      selectors
     };
   }
 
@@ -99,8 +99,8 @@ export function expandTarget(
       (target as any).partOf = [
         {
           id: (target as any).partOf,
-          type: "Manifest",
-        },
+          type: "Manifest"
+        }
       ];
     }
 
@@ -111,10 +111,10 @@ export function expandTarget(
         type: "SpecificResource",
         source: {
           ...(target as any),
-          id,
+          id
         },
         selector: null,
-        selectors: [],
+        selectors: []
       };
     }
 
@@ -122,12 +122,12 @@ export function expandTarget(
       type: "SpecificResource",
       source: {
         ...(target as any),
-        id,
+        id
       },
       selector: {
         type: "FragmentSelector",
-        value: fragment,
-      },
+        value: fragment
+      }
     });
   }
 
@@ -135,6 +135,6 @@ export function expandTarget(
     type: "SpecificResource",
     source: target as ExternalWebResource,
     selector: null,
-    selectors: [],
+    selectors: []
   };
 }

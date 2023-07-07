@@ -45,7 +45,7 @@ export default class ModelViewerExtension extends BaseExtension {
     "cy-GB": () => import("./config/cy-GB.json"),
     "fr-FR": () => import("./config/fr-FR.json"),
     "pl-PL": () => import("./config/pl-PL.json"),
-    "sv-SE": () => import("./config/sv-SE.json"),
+    "sv-SE": () => import("./config/sv-SE.json")
   };
 
   create(): void {
@@ -222,7 +222,7 @@ export default class ModelViewerExtension extends BaseExtension {
       annotationGroup.canvasIndex = canvasIndex as number;
 
       const match: AnnotationGroup = groupedAnnotations.filter(
-        (x) => x.canvasId === annotationGroup.canvasId
+        x => x.canvasId === annotationGroup.canvasId
       )[0];
 
       // if there's already an annotation for that target, add a rect to it, otherwise create a new AnnotationGroup

@@ -9,7 +9,7 @@ import {
   IManifestoOptions,
   Service,
   StatusCode,
-  Utils,
+  Utils
 } from "manifesto.js";
 import { Storage, StorageType, StorageItem, Urls } from "@edsilv/utils";
 // import { Urls } from "@edsilv/utils";
@@ -26,7 +26,7 @@ export class Auth1 {
     storageStrategy: StorageType,
     options: IManifestoOptions
   ): Promise<IExternalResource[]> {
-    return new Promise<IExternalResource[]>((resolve) => {
+    return new Promise<IExternalResource[]>(resolve => {
       Auth1.storageStrategy = storageStrategy;
 
       // set all resources to Auth API V1
@@ -95,7 +95,7 @@ export class Auth1 {
   static userInteractedWithContentProvider(
     contentProviderWindow: Window
   ): Promise<boolean> {
-    return new Promise<boolean>((resolve) => {
+    return new Promise<boolean>(resolve => {
       // What happens here is forever a mystery to a client application.
       // It can but wait.
       const poll: number = window.setInterval(() => {
@@ -108,7 +108,7 @@ export class Auth1 {
   }
 
   static handleMovedTemporarily(resource: IExternalResource): Promise<void> {
-    return new Promise<void>((resolve) => {
+    return new Promise<void>(resolve => {
       Auth1.showDegradedMessage(resource);
       resource.isResponseHandled = true;
       resolve();
@@ -195,7 +195,7 @@ export class Auth1 {
     resource: IExternalResource,
     service: Service
   ): Promise<Window | null> {
-    return new Promise<Window | null>((resolve) => {
+    return new Promise<Window | null>(resolve => {
       // if the info bar has already been shown for degraded logins
       if (resource.isResponseHandled && !resource.authHoldingPage) {
         Auth1.showDegradedMessage(resource);
@@ -221,8 +221,8 @@ export class Auth1 {
             },
             cancelCallback: () => {
               resolve(null);
-            },
-          },
+            }
+          }
         ]);
       }
     });
@@ -244,7 +244,7 @@ export class Auth1 {
         resolve: resolve,
         reject: reject,
         serviceOrigin: serviceOrigin,
-        resource: resource,
+        resource: resource
       };
 
       window.addEventListener("message", Auth1.receiveToken, false);

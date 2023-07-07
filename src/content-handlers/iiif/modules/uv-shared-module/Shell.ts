@@ -73,7 +73,7 @@ export class Shell extends BaseView {
     );
     this.$overlays.append(this.$genericDialogue);
 
-    this.$overlays.on("click", (e) => {
+    this.$overlays.on("click", e => {
       if ($(e.target).hasClass("overlays")) {
         e.preventDefault();
         this.extensionHost.publish(IIIFEvents.CLOSE_ACTIVE_DIALOGUE);

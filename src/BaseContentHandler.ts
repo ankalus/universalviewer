@@ -43,7 +43,7 @@ export default class BaseContentHandler<IUVData>
 
     (e[name] || (e[name] = [])).push({
       cb,
-      ctx,
+      ctx
     });
   }
 
@@ -73,9 +73,9 @@ export default class BaseContentHandler<IUVData>
 
     this.fire(Events.CONFIGURE, {
       config,
-      cb: (promise) => {
+      cb: promise => {
         promises.push(promise);
-      },
+      }
     });
 
     if (promises.length) {

@@ -11,12 +11,12 @@ import {
   IExternalResource,
   Canvas,
   Annotation,
-  AnnotationBody,
+  AnnotationBody
 } from "manifesto.js";
 import { MediaType } from "@iiif/vocabulary/dist-commonjs/";
 import {
   applyPolyfills,
-  defineCustomElements,
+  defineCustomElements
 } from "@universalviewer/aleph/loader";
 import "@universalviewer/aleph/dist/collection/assets/OrbitControls";
 import { Events } from "../../../../Events";
@@ -54,7 +54,7 @@ export class AlephCenterPanel extends CenterPanel {
         if (this._alViewerReady) {
           this._nextState(
             Object.assign({}, e.detail, {
-              src: this._prevState.src,
+              src: this._prevState.src
             })
           );
         }
@@ -67,7 +67,7 @@ export class AlephCenterPanel extends CenterPanel {
       (e: any) => {
         this.extensionHost.publish(AlephExtensionEvents.LOADED, {
           stackhelper:
-            this._state.displayMode !== DisplayMode.MESH ? e.detail : null,
+            this._state.displayMode !== DisplayMode.MESH ? e.detail : null
         });
       },
       false
@@ -254,7 +254,7 @@ export class AlephCenterPanel extends CenterPanel {
 
           this._nextState({
             src: media.id,
-            displayMode: displayMode,
+            displayMode: displayMode
           });
         }
       }

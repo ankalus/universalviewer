@@ -76,7 +76,7 @@ export class HeaderPanel extends BaseView {
 
     this.$informationBox.hide();
     this.$informationBox.find(".close").attr("title", this.content.close);
-    this.$informationBox.find(".close").on("click", (e) => {
+    this.$informationBox.find(".close").on("click", e => {
       e.preventDefault();
       this.extensionHost.publish(IIIFEvents.HIDE_INFORMATION);
     });
@@ -165,7 +165,7 @@ export class HeaderPanel extends BaseView {
       $actions.append($action);
     }
 
-    this.extensionHost.publish(IIIFEvents.MESSAGE_DISPLAYED, this.information)
+    this.extensionHost.publish(IIIFEvents.MESSAGE_DISPLAYED, this.information);
 
     this.$informationBox.attr("aria-hidden", "false");
     this.$informationBox.show();
@@ -198,7 +198,7 @@ export class HeaderPanel extends BaseView {
     const pos: number = center - containerWidth / 2;
 
     this.$centerOptions.css({
-      left: pos,
+      left: pos
     });
 
     if (isVisible(this.$informationBox)) {

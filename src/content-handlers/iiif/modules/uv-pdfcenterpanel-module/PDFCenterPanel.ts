@@ -296,11 +296,11 @@ export class PDFCenterPanel extends CenterPanel {
 
       const parameter = {
         url: mediaUri,
-        withCredentials: canvas.externalResource.isAccessControlled(),
+        withCredentials: canvas.externalResource.isAccessControlled()
       };
 
       const loadingTask = this._pdfjsLib.getDocument(parameter);
-      loadingTask.onProgress = (progress) => {
+      loadingTask.onProgress = progress => {
         const percentLoaded = (progress.loaded / progress.total) * 100;
         this._$progress[0].setAttribute("value", String(percentLoaded));
         if (percentLoaded === 100) {
@@ -308,7 +308,7 @@ export class PDFCenterPanel extends CenterPanel {
           this._$canvas.show();
         }
       };
-      loadingTask.promise.then((pdf) => {
+      loadingTask.promise.then(pdf => {
         this._pdfDoc = pdf;
         this._render(this._pageIndex);
         this.extensionHost.publish(PDFExtensionEvents.PDF_LOADED, pdf);
@@ -346,9 +346,11 @@ export class PDFCenterPanel extends CenterPanel {
 
       // calculate correct scale to fit to available height
       if (this._fitToHeight) {
-        this._scale = Math.floor(
-          this.$content.height() * 100.0 / page.getViewport({ scale: 1 }).height
-        ) / 100;
+        this._scale =
+          Math.floor(
+            (this.$content.height() * 100.0) /
+              page.getViewport({ scale: 1 }).height
+          ) / 100;
       }
 
       // scale viewport
@@ -359,7 +361,7 @@ export class PDFCenterPanel extends CenterPanel {
       // Render PDF page into canvas context
       const renderContext = {
         canvasContext: this._ctx,
-        viewport: this._viewport,
+        viewport: this._viewport
       };
 
       this._renderTask = page.render(renderContext);
@@ -432,14 +434,14 @@ export class PDFCenterPanel extends CenterPanel {
 
     this._$prevButton.css({
       top: (this.$content.height() - this._$prevButton.height()) / 2,
-      left: this._$prevButton.horizontalMargins(),
+      left: this._$prevButton.horizontalMargins()
     });
 
     this._$nextButton.css({
       top: (this.$content.height() - this._$nextButton.height()) / 2,
       left:
         this.$content.width() -
-        (this._$nextButton.width() + this._$nextButton.horizontalMargins()),
+        (this._$nextButton.width() + this._$nextButton.horizontalMargins())
     });
 
     if (!this._viewport) {

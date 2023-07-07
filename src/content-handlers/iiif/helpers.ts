@@ -2,7 +2,7 @@ import {
   ContentState,
   normaliseContentState,
   NormalisedContentState,
-  parseContentState,
+  parseContentState
 } from "./content-state/content-state";
 export function parseContentStateParameter(
   contentState?: ContentState | string

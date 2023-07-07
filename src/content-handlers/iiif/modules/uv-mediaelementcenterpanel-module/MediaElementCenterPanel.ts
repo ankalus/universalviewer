@@ -1,4 +1,4 @@
-import {Dimensions} from "@edsilv/utils";
+import { Dimensions } from "@edsilv/utils";
 
 const $ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
@@ -11,7 +11,7 @@ import {
   AnnotationBody,
   Canvas,
   IExternalResource,
-  Rendering,
+  Rendering
 } from "manifesto.js";
 import "mediaelement/build/mediaelement-and-player";
 import "mediaelement-plugins/dist/source-chooser/source-chooser";
@@ -96,7 +96,7 @@ export class MediaElementCenterPanel extends CenterPanel {
       canvas.getRenderings().forEach((rendering: Rendering) => {
         sources.push({
           type: rendering.getFormat().toString(),
-          src: rendering.id,
+          src: rendering.id
         });
       });
     } else {
@@ -115,7 +115,7 @@ export class MediaElementCenterPanel extends CenterPanel {
             sources.push({
               label: format.__jsonld.label ? format.__jsonld.label : "",
               type: type.toString(),
-              src: format.id,
+              src: format.id
             });
           }
         });
@@ -200,7 +200,7 @@ export class MediaElementCenterPanel extends CenterPanel {
               Math.floor(mediaElement.currentTime)
             );
           });
-        },
+        }
       });
     } else {
       // audio
@@ -228,7 +228,7 @@ export class MediaElementCenterPanel extends CenterPanel {
           "progress",
           "tracks",
           "volume",
-          "sourcechooser",
+          "sourcechooser"
         ],
         stretching: "responsive",
         defaultAudioHeight: "auto",
@@ -268,7 +268,7 @@ export class MediaElementCenterPanel extends CenterPanel {
               Math.floor(mediaElement.currentTime)
             );
           });
-        },
+        }
       });
     }
 
@@ -291,7 +291,12 @@ export class MediaElementCenterPanel extends CenterPanel {
       this.$title.text(sanitize(this.title));
     }
 
-    const size = Dimensions.fitRect(this.mediaWidth, this.mediaHeight, this.$content.width(), this.$content.height());
+    const size = Dimensions.fitRect(
+      this.mediaWidth,
+      this.mediaHeight,
+      this.$content.width(),
+      this.$content.height()
+    );
 
     this.$container.height(size.height);
     this.$container.width(size.width);

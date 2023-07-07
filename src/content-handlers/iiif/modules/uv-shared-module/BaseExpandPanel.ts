@@ -134,7 +134,7 @@ export class BaseExpandPanel extends BaseView {
       this.$element.stop().animate(
         {
           width: this.getTargetWidth(),
-          left: this.getTargetLeft(),
+          left: this.getTargetLeft()
         },
         this.options.panelAnimationDuration,
         () => {
@@ -177,7 +177,7 @@ export class BaseExpandPanel extends BaseView {
     this.$element.stop().animate(
       {
         width: targetWidth,
-        left: targetLeft,
+        left: targetLeft
       },
       this.options.panelAnimationDuration,
       () => {
@@ -195,7 +195,7 @@ export class BaseExpandPanel extends BaseView {
     this.$element.stop().animate(
       {
         width: targetWidth,
-        left: targetLeft,
+        left: targetLeft
       },
       this.options.panelAnimationDuration,
       () => {

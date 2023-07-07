@@ -27,7 +27,7 @@ export class TreeView extends BaseView {
 
     this.treeComponent = new TreeComponent({
       target: <HTMLElement>this.$tree[0],
-      data: this.treeData,
+      data: this.treeData
     });
 
     this.treeComponent.on(

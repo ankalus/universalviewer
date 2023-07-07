@@ -64,11 +64,11 @@ export class MultiSelectDialogue extends Dialogue {
       thumbHeight: this.config.options.galleryThumbHeight,
       thumbLoadPadding: this.config.options.galleryThumbLoadPadding,
       thumbWidth: this.config.options.galleryThumbWidth,
-      viewingDirection: this.extension.helper.getViewingDirection(),
+      viewingDirection: this.extension.helper.getViewingDirection()
     };
 
     this.galleryComponent = new GalleryComponent({
-      target: <HTMLElement>this.$gallery[0],
+      target: <HTMLElement>this.$gallery[0]
     });
 
     const $selectButton: JQuery = this.$gallery.find("a.select");

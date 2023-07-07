@@ -48,7 +48,7 @@ export default class YouTubeContentHandler extends BaseContentHandler<
     window.youTubePlayers.push({
       id: this._id,
       data: data,
-      ref: this,
+      ref: this
     });
 
     this._el.id = this._id;
@@ -71,7 +71,7 @@ export default class YouTubeContentHandler extends BaseContentHandler<
           player.ref
             .configure({
               // default config
-              controls: true,
+              controls: true
             })
             .then((config: YouTubeConfig) => {
               window[player.id] = new YT.Player(player.id, {
@@ -85,19 +85,19 @@ export default class YouTubeContentHandler extends BaseContentHandler<
                   showInfo: 0,
                   rel: 0,
                   // iv_load_policy: 3,
-                  modestbranding: 1,
+                  modestbranding: 1
                   // start: 10,
                   // end: 20,
                 },
                 events: {
-                  onReady: (event) => {
+                  onReady: event => {
                     const YTPlayer = event.target;
                     const id = YTPlayer.getIframe().id;
                     // const duration = YTPlayer.getDuration();
 
                     // get the ref to the associated content handler
                     const handler: Player = window.youTubePlayers.find(
-                      (p) => p.id === id
+                      p => p.id === id
                     );
 
                     if (handler) {
@@ -109,14 +109,14 @@ export default class YouTubeContentHandler extends BaseContentHandler<
                       // });
                     }
                   },
-                  onStateChange: (event) => {
+                  onStateChange: event => {
                     const YTPlayer = event.target;
                     const id = YTPlayer.getIframe().id;
                     const duration = YTPlayer.getDuration();
 
                     // get the ref to the associated content handler
                     const handler: Player = window.youTubePlayers.find(
-                      (p) => p.id === id
+                      p => p.id === id
                     );
 
                     if (handler) {
@@ -125,7 +125,7 @@ export default class YouTubeContentHandler extends BaseContentHandler<
                           handler.ref.fire(YouTubeEvents.UNSTARTED);
                           handler.ref.fire(Events.LOAD, {
                             player: YTPlayer,
-                            duration: duration,
+                            duration: duration
                           });
                           break;
                         case 0:
@@ -148,8 +148,8 @@ export default class YouTubeContentHandler extends BaseContentHandler<
                     // const currentTime = this._player.getCurrentTime();
                     // console.log(currentTime);
                     // currentTimeInput.value = currentTime;
-                  },
-                },
+                  }
+                }
               });
             });
         }
@@ -179,7 +179,7 @@ export default class YouTubeContentHandler extends BaseContentHandler<
           player.loadVideoById({
             videoId: videoId,
             startSeconds: data.duration[0],
-            endSeconds: data.duration[1],
+            endSeconds: data.duration[1]
           });
         } else {
           player.loadVideoById(videoId);
@@ -189,7 +189,7 @@ export default class YouTubeContentHandler extends BaseContentHandler<
           player.cueVideoById({
             videoId: videoId,
             startSeconds: data.duration[0],
-            endSeconds: data.duration[1],
+            endSeconds: data.duration[1]
           });
         } else {
           player.cueVideoById(videoId);
@@ -216,7 +216,7 @@ export default class YouTubeContentHandler extends BaseContentHandler<
     super.dispose();
     // remove from window.youTubePlayers where hostId === this._id
     window.youTubePlayers = window.youTubePlayers.filter(
-      (p) => p.id !== this._id
+      p => p.id !== this._id
     );
   }
 }

@@ -23,6 +23,7 @@ export class PDFCenterPanel extends CenterPanel {
   private _lastMediaUri: string | null = null;
   private _maxScale = 5;
   private _minScale = 0.7;
+  private _fitToHeight = true;
   private _nextButtonEnabled: boolean = false;
   private _pageIndex: number = 1;
   private _pageIndexPending: number | null = null;
@@ -183,6 +184,8 @@ export class PDFCenterPanel extends CenterPanel {
         this._scale = this._maxScale;
       }
 
+      this._fitToHeight = false;
+
       this._render(this._pageIndex);
     });
 
@@ -196,6 +199,8 @@ export class PDFCenterPanel extends CenterPanel {
       } else {
         this._scale = this._minScale;
       }
+
+      this._fitToHeight = false;
 
       this._render(this._pageIndex);
     });
@@ -339,16 +344,12 @@ export class PDFCenterPanel extends CenterPanel {
         this._renderTask.cancel();
       }
 
-      // how to fit to the available space
-      // const height: number = this.$content.height();
-      // this._canvas.height = height;
-      // this._viewport = page.getViewport(this._canvas.height / page.getViewport(1.0).height);
-      // const width: number = this._viewport.width;
-      // this._canvas.width = width;
-
-      // this._$canvas.css({
-      //     left: (this.$content.width() / 2) - (width / 2)
-      // });
+      // calculate correct scale to fit to available height
+      if (this._fitToHeight) {
+        this._scale = Math.floor(
+          this.$content.height() * 100.0 / page.getViewport({ scale: 1 }).height
+        ) / 100;
+      }
 
       // scale viewport
       this._viewport = page.getViewport({ scale: this._scale });
